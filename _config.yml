@@ -1,22 +1,40 @@
+# Basic
+title: blog
+subtitle: A blog-orientation theme for Jekyll
+welcome_message: ""
+description: ""
+creator: ""
 
-title: Bootstrap 4 Github Pages
-email: ""
-description: mypage
-repository: "nicolas-van/bootstrap-4-github-pages"
+url: "cfwin.github.io"
 
-# Build settings
-plugins:
-  - jekyll-feed
-  - jekyll-sitemap
+permalink: /:year/:month/:title/
 
-# A list of the pages to display in the navigation bar
-header_pages:
+# Format
+highlighter: rouge
 
-# Exclude from processing.
-# The following items will not be processed, by default. Create a custom list
-# to override the default setting.
-exclude:
-  - Gemfile
-  - Gemfile.lock
-  - node_modules
-  - update_boostrap.sh
+# supported colors: blue, green, purple, red, orange or slate. If you need clear, leave it empty.
+cover_color: red
+
+# The blog button should not be removed.
+blog_button:
+    title: Blog
+    description: Visit blog
+
+# Navigation buttons in the front page.
+nav:
+    - {title: Projects, description: My Projects, url: 'http://project.onevcat.com'}
+    # - {title: Another Button, description: A button, url: 'http://example.com'}
+
+# Pagination
+gems: [jekyll-paginate]
+paginate: 10
+paginate_path: "page/:num/"
+
+
+    
+
+
+# Google Analytics
+ga:
+    # id: your_ga_id
+    # host: your_host
