@@ -14,3 +14,5 @@ sitefile: "/db/Sitefile" # the Database
 
 # pagination
 page_size: 3
+
+theme: jekyll-theme-cayman
