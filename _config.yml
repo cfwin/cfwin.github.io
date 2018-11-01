@@ -1,0 +1,16 @@
+# Site settings
+title: 老马识途
+author: 老马
+email:
+description: 记录生活
+domain: "http://cfwin.github.io" # the domain URL for your site
+base: ""  # the relative path that different with domain so you can test locally
+
+# Source URL NOTE: end with / cause it's [URL + FILE]
+w3c_url: "/w3c/"  # the base url of css js and images
+images_url: "/w3c/images/" # the base url of post images
+postfile: "/db/Postfile" # the Database
+sitefile: "/db/Sitefile" # the Database
+
+# pagination
+page_size: 3
