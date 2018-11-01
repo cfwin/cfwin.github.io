@@ -3,6 +3,7 @@ layout: post
 title: Jekyll 语法简单笔记
 date: 2016-02-15 15:32:24.000000000 +09:00
 catalog: 	 true
+categories: Blog
 tags:
     - Jekyll
     - 模板
