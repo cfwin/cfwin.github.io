@@ -2,6 +2,10 @@
 layout: post
 title: Jekyll 语法简单笔记
 date: 2016-02-15 15:32:24.000000000 +09:00
+catalog: 	 true
+tags:
+    - Jekyll
+    - 模板
 ---
 
 <p>不过,现在我要记录一个比较完整的语法来建立一个功能比较健全记录型博客.</p>
