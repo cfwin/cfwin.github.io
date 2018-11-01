@@ -1,18 +1,22 @@
-# Site settings
-title: 老马识途
-author: 老马
-email:
-description: 记录生活
-domain: "http://cfwin.github.io" # the domain URL for your site
-base: ""  # the relative path that different with domain so you can test locally
 
-# Source URL NOTE: end with / cause it's [URL + FILE]
-w3c_url: "/w3c/"  # the base url of css js and images
-images_url: "/w3c/images/" # the base url of post images
-postfile: "/db/Postfile" # the Database
-sitefile: "/db/Sitefile" # the Database
+title: Bootstrap 4 Github Pages
+email: ""
+description: mypage
+repository: "nicolas-van/bootstrap-4-github-pages"
 
-# pagination
-page_size: 3
+# Build settings
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
 
-theme: jekyll-theme-cayman
+# A list of the pages to display in the navigation bar
+header_pages:
+
+# Exclude from processing.
+# The following items will not be processed, by default. Create a custom list
+# to override the default setting.
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - update_boostrap.sh
