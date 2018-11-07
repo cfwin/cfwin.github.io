@@ -12,6 +12,9 @@ Html上
 <!doctype html> <--这一行删除，就会解决css无法解析的问题了。
 
 但是还是有警告信息
+
 1 Resource interpreted as Stylesheet but transferred with MIME type text/plain:
+
 2 The provided value 'moz-chunked-arraybuffer' is not a valid enum value of type XMLHttpRequestResponseType.
+
 没有解决，查找中...
