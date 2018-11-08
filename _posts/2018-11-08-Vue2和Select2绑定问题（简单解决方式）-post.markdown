@@ -10,7 +10,7 @@ tags:
 ---
 
 
-工作上碰到Vue和Select2结合问题
+工作上碰到Vue和Select2结合问题,简单点，问题解决。
 
 ~~~
 Vue.directive('select2', {
