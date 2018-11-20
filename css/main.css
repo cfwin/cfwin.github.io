@@ -18,7 +18,8 @@ main {
   overflow: hidden;
 }
 pre {
-    background-color: #f6f8fa;
+        background-color: #000000;
+    color: #FFF;
     border-radius: 3px;
     font-size: 85%;
     line-height: 1.45;
@@ -27,7 +28,7 @@ pre {
   margin-bottom: 0;
     word-break: normal;
   word-wrap: normal;
-  margin-top: 0;
+  margin: 20px;
       
 }
   
