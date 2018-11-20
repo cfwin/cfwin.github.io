@@ -1,0 +1,119 @@
+---
+layout: post
+title: Mysql关联表格无法删除解决办法
+date: 2018-11-20 18:32:24.000000000 +09:00
+catalog: 	 true
+categories: Nodejs
+tags:
+    - socket.io
+---
+
+
+
+简单的聊天 socket.io版
+
+
+代码
+~~~
+var express = require('express');
+var app = express();
+var http = require('http').Server(app);
+var io = require('socket.io')(http);
+
+app.use(express.static(__dirname));
+
+app.get('/', function(req, res){
+  res.sendfile('index.html');
+});
+
+io.on('connection', function(socket){
+	var $sid = socket.id;
+  socket.on('disconnect', function(){
+    console.log('user disconnected');
+  });
+  socket.on('chat_message', function(msg) {
+    
+	for (var id in io.sockets.connected) {
+	  console.log(id);
+	  if(id == $sid){
+		  msg.sender="me";
+			io.sockets.connected[id].emit('chat_message', msg);
+	  }else{
+		  msg.sender="other";
+		  io.sockets.connected[id].emit('chat_message', msg);
+	  }
+	}
+  });
+});
+
+http.listen(3000, function(){
+  console.log('listening on *:3000');
+});
+~~~
+
+
+
+
+~~~
+<!doctype html>
+<html>
+  <head>
+    <title>Socket.IO chat</title>
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      body { font: 13px Helvetica, Arial; }
+      #send_message_box { background: #000; padding: 3px; position: fixed; bottom: 0; width: 100%; }
+      #send_message_box input { border: 0; padding: 10px; width: 90%; margin-right: .5%; }
+      #send_message_box button { width: 9%; background: rgb(130, 224, 255); border: none; padding: 10px; }
+      #messages { list-style-type: none; margin: 0; padding: 0; }
+      #messages li { padding: 5px 10px; }
+      #messages li:nth-child(odd) { background: #eee; }
+    </style>
+  </head>
+  <body >
+  <div id="app">
+    <ul id="messages">
+	<li v-for="(item, index) in messages">
+		{{ item.sender }} : {{ item.message }} 
+	</li>
+	</ul>
+    <div id="send_message_box">
+      <input id="m" v-model="message_input" autocomplete="off" /><button @click="send_message" type="button">Send</button>
+	  <input type="checkbox"  class="form-check-input" id="exampleCheck1">
+    </div>
+	</div>
+</body>
+<script src="/socket.io/socket.io.js"></script>
+<script src="http://code.jquery.com/jquery-1.11.1.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+
+
+<script>
+var app = new Vue({
+    el: '#app',
+    data: {
+		messages:[],
+		message_input:"",
+		socket:{},
+	},
+	mounted () {
+		this.socket = io();
+		this.socket.on('chat_message', function(msg){
+			app.messages.push({"sender":"other", "message":msg});
+		});
+	},
+	methods: {
+		send_message: function(event){
+			this.socket.emit('chat_message', {"sender":"me", "message":this.message_input});
+			// this.messages.push({"sender":"me", "message":this.message_input});
+			this.message_input = "";
+		}
+	}
+});
+
+
+</script>
+
+  
+</html>
+~~~
