@@ -99,7 +99,7 @@ var app = new Vue({
 	mounted () {
 		this.socket = io();
 		this.socket.on('chat_message', function(msg){
-			app.messages.push({"sender":"other", "message":msg});
+			app.messages.push(msg);
 		});
 	},
 	methods: {
