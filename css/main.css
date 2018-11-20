@@ -33,7 +33,7 @@ pre {
 }
 
 .post-list__post-title{
-  font-size: 17px;
+  font-size: 17px !important;
 }
   
   
