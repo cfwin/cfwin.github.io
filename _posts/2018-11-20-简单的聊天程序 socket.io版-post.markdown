@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 简单的聊天c程序 socket.io版
+title: 简单的聊天程序 socket.io版
 date: 2018-11-20 18:32:24.000000000 +09:00
 catalog: 	 true
 categories: Nodejs
