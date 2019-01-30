@@ -37,3 +37,46 @@ var app = new Vue({
       <option :value="item_key" v-for="(item_value, item_key) in categories">{{ item_value }}</option>
 </select>
 ~~~
+
+
+上面的方法IE的时候出现问题，新的解决方法。
+
+~~~
+
+Vue.directive('select2', {
+            twoWay: true,
+            bind: function (el, binding, vnode) {
+                $(el).select2().on("select2:select", function (e){
+                    var detail = { target: e.target }; 
+                    var event;
+
+                    try {
+                        event = new CustomEvent('change', { detail: detail });
+                    } catch (e) {
+                        event = document.createEvent('CustomEvent');
+                        event.initCustomEvent('change', false, false, detail);
+                    }
+
+
+
+                    el.dispatchEvent(event);
+                });
+
+                $(el).select2().on("select2:unselect", function (e){
+                    var detail = { target: e.target }; 
+                    var event;
+
+                    try {
+                        event = new CustomEvent('change', { detail: detail });
+                    } catch (e) {
+                        event = document.createEvent('CustomEvent');
+                        event.initCustomEvent('change', false, false, detail);
+                    }
+                    el.dispatchEvent(event);
+
+                    //el.dispatchEvent(new Event('change', {target: e.target}));
+                });
+            }
+        });
+
+~~~
